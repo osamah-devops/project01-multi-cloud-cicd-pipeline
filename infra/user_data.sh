@@ -22,9 +22,12 @@ http://169.254.169.254/latest/meta-data/placement/availability-zone)
 PRIVATE_IP=$(curl -s -H "X-aws-ec2-metadata-token: $TOKEN" \
 http://169.254.169.254/latest/meta-data/local-ipv4)
 
-git clone https://github.com/<username>/<repo>.git /opt/app
+git clone https://github.com/osamah-devops/project01-multi-cloud-cicd-pipeline.git /opt/app
 
 cd /opt/app
+rm -rf /backend
+rm -rf /infra
+cd /opt/app/frontend
 
 npm install
 
@@ -32,7 +35,7 @@ npm run build
 
 rm -rf /var/www/html/*
 
-cp -r dist/<project-name>/browser/* /var/www/html/
+cp -r dist/frontend/browser/* /var/www/html/
 
 systemctl restart httpd
 
