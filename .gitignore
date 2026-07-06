@@ -1,0 +1,97 @@
+# =========================================================================
+# ANGULAR (.NET/Node Frontend)
+# =========================================================================
+# Dependencies
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.angular/
+
+# Logs
+/frontend/.logs
+*.log
+/frontend/.npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/pnpm-debug.log*
+
+# Runtime data and local configuration
+/frontend/.excel/
+/frontend/.env
+/frontend/.env.local
+/frontend/.env.*.local
+
+# IDEs and editors
+/frontend/.vscode/
+/frontend/.idea/
+/frontend/*.suo
+/frontend/*.ntvs*
+/frontend/*.njsproj 
+/frontend/*.sln.docstates
+
+# =========================================================================
+# TERRAFORM (Infrastructure as Code)
+# =========================================================================
+# Local dir for downloaded plugins and modules
+/infra/.terraform/
+
+# Lock file containing provider signatures (Uncomment if you want to force updates)
+# .terraform.lock.hcl
+
+# Local state files (CRITICAL: These contain sensitive infrastructure secrets)
+/infra/*.tfstate
+/infra/*.tfstate.*
+
+# Crash logs
+/infra/crash.log
+/infra/crash.*.log
+
+# Terraform CLI overrides
+/infra/override.tf
+/infra/override.tf.json
+/infra/*_override.tf
+/infra/*_override.tf.json
+
+# Variable files containing secrets (Do not commit real passwords/tokens!)
+/infra/*.tfvars
+/infra/*.tfvars.json
+
+# =========================================================================
+# .NET / C# (Backend API / Services)
+# =========================================================================
+# Build outputs
+./backend/bin/
+./backend/obj/
+
+# User-specific files and layouts
+./backend/*.user
+./backend/*.userosscache
+./backend/*.sln.docstates
+
+# Rider / Visual Studio cache and settings
+./backend/.vs/
+./backend/._ReSharper*/
+./backend/*.attachments
+./backend/*.suo
+./backend/*.user
+./backend/*.userosscache
+./backend/*.sln.docstates
+./backend/*.userprefs
+
+# Rosetta / Mono metadata
+.metadata/
+
+# .NET Core / App secrets
+./backend/usersecrets.json
+./backend/appsettings.Development.json
+./backend/appsettings.Local.json
+
+# Tools
+./backend/.dotnet/
+./backend/.tools/
+
+# =========================================================================
+# GENERAL / OS SPECIFIC
+# =========================================================================
+.DS_Store
+Thumbs.db
+desktop.ini
