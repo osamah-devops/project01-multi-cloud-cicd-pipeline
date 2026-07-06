@@ -6,9 +6,12 @@ on:
     paths:
       - '.github/workflows/create_infra.yaml'
       - 'infra/**'
+  workflow_dispatch:
+
 permissions:
   contents: read
   id-token: write
+
 jobs:
   create_infra:
     runs-on: ubuntu-latest
