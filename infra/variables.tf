@@ -16,6 +16,7 @@ variable "key_name" {
 
 variable "certificate_arn" {
   description = "ACM Certificate ARN"
+  value       = "arn:aws:acm:us-east-1:072754096540:certificate/4b5e7d68-8d5e-49e2-a57f-0a1045800819"
 }
 
 variable "desired_capacity" {
