@@ -9,11 +9,6 @@ resource "aws_key_pair" "bastion" {
   public_key = tls_private_key.ec2_key.public_key_openssh
 }
 
-# 4. Output the Private Key string to your terminal
-output "private_key_pem" {
-  value     = tls_private_key.ec2_key.private_key_pem
-  sensitive = true # Hides the raw key text from printing automatically during apply
-}
 resource "aws_instance" "bastion" {
 
   ami                    = data.aws_ami.amazon_linux.id
@@ -33,4 +28,9 @@ resource "aws_instance" "bastion" {
     Name = "Bastion-Host"
   }
 
+}
+# 4. Output the Private Key string to your terminal
+output "private_key_pem" {
+  value     = tls_private_key.ec2_key.private_key_pem
+  sensitive = true # Hides the raw key text from printing automatically during apply
 }

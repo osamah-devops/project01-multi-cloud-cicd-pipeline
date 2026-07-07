@@ -1,13 +1,23 @@
 #############################################
 # Launch Template
 #############################################
+# 2. Generate a secure Private/Public key pair in-memory
+resource "tls_private_key" "ec2_key" {
+  algorithm = "ED25519"
+}
+
+# 3. Create the AWS Key Pair using the generated OpenSSH public key string
+resource "aws_key_pair" "instance_key" {
+  key_name   = "instance-key"
+  public_key = tls_private_key.ec2_key.public_key_openssh
+}
 
 resource "aws_launch_template" "web" {
 
   name_prefix   = "web-"
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
-  key_name      = aws_key_pair.bastion_key.key_name
+  key_name      = aws_key_pair.instance_key.key_name
 
   vpc_security_group_ids = [
     aws_security_group.ec2.id
@@ -71,4 +81,8 @@ resource "aws_autoscaling_group" "web" {
   lifecycle {
     create_before_destroy = true
   }
+}
+output "instance_private_key_pem" {
+  value     = tls_private_key.ec2_key.private_key_pem
+  sensitive = true # Hides the raw key text from printing automatically during apply
 }
