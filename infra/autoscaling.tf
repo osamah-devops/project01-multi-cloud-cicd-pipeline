@@ -17,7 +17,7 @@ resource "aws_launch_template" "web" {
     arn = aws_iam_instance_profile.ec2.arn
   }
 
-  user_data = base64encode(file("${path.module}/infra/user_data.sh"))
+  user_data = base64encode(file("user_data.sh"))
 
   monitoring {
     enabled = true
