@@ -1,6 +1,6 @@
 resource "aws_key_pair" "bastion_key" {
   key_name   = "bastion-key"
-  public_key = filebase64("ec2-key.pub")
+  public_key = file("ec2-key.pub")
 }
 resource "aws_instance" "bastion" {
 
