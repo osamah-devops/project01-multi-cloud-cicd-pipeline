@@ -7,7 +7,7 @@ resource "aws_launch_template" "web" {
   name_prefix   = "web-"
   image_id      = data.aws_ami.amazon_linux.id
   instance_type = var.instance_type
-  key_name      = var.key_name
+  key_name      = aws_key_pair.bastion_key.key_name
 
   vpc_security_group_ids = [
     aws_security_group.ec2.id
